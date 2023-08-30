@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" th:href="@{./css/board.css}">
+
+</head>
+<body>
+	<h1>board</h1>
+	<table>
+		<tr>
+			<th>번호</th>
+			<th>제목</th>
+			<th>글쓴이</th>
+			<th>날짜</th>
+			<th>좋아요</th>
+		</tr>
+		<tr th:each="row : ${list}">
+			<td th:text="${row.bno}">번호자리</td>
+			<td th:onclick= "|location.href='@{./detail(bno=${row.bno})}'|">[[${row.btitle}]]<small>[[${row.commentcount}]]</small></td>
+			<td th:text="${row.m_name}">글쓴이</td>
+			<td th:text="${row.bdate}">날짜</td>
+			<td th:text="${row.blike}">좋아요</td>
+		</tr>
+
+
+
+
+
+
+
+	</table>
+
+
+</body>
+</html>
